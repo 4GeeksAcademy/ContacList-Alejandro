@@ -1,31 +1,41 @@
+import ContactCards from "./components/ContactCards";
+import Contact from "./pages/Contact";
+
 export const initialStore=()=>{
   return{
-    message: null,
-    todos: [
-      {
-        id: 1,
-        title: "Make the bed",
-        background: null,
-      },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
-      }
-    ]
+    contacts: [],
+    newContactForm: {
+      name: "",
+      email: "",
+      phone: "",
+      address: ""
+    }
   }
+
 }
 
 export default function storeReducer(store, action = {}) {
   switch(action.type){
-    case 'add_task':
-
-      const { id,  color } = action.payload
-
+    case 'get_contacts':
       return {
         ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+        contacts: action.payload
       };
+      case 'update_new_contact_form':
+        return {
+          ...store,
+          newContactForm: {...store.newContactForm, ...action.payload}
+        };
+      case 'reset_new_contact_form':
+        return {
+          ...store,
+          newContactForm: {
+            name: "",
+            email: "",
+            phone: "",
+            address: ""
+          }
+        };
     default:
       throw Error('Unknown action.');
   }    

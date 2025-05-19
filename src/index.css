@@ -1,0 +1,40 @@
+.card {
+  height: 100%;
+  font-family: 'Arial', sans-serif; 
+  padding: 20px;
+  border: 1px solid #e0e0e0; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+}
+
+.card-img-top {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.contact-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-address, .contact-phone, .contact-email {
+  font-size: 15px;
+  color: #888;
+}
+
+.btn-card {
+    float: right;
+    margin-top: 10px;
+}
+
+li {
+  list-style: none;
+}
+
