@@ -12,8 +12,8 @@ const Contact = () => {
 
     const reloadContacts = async () => {
         try{
-            const contacsData = await getContacts("Agenda_Alejandro")
-            dispatch({ type: "get_contacts", payload: contacsData })
+            const contactsData = await getContacts("Agenda_Alejandro")
+            dispatch({ type: "get_contacts", payload: contactsData })
         } catch (error) {
             console.error("Error al obtener los contactos:", error);
         }

@@ -1,7 +1,8 @@
 import { deleteContact, UpdateContact } from "../services/api"
-
+import { useNavigate } from "react-router-dom"
 
 const ContactCards = ({id, name, phone, address, email, onChange}) => {
+    const navigate = useNavigate()
     const agenda = "Agenda_Alejandro"
 
     const handleDeleteContact = async () => {
@@ -16,17 +17,10 @@ const ContactCards = ({id, name, phone, address, email, onChange}) => {
         }
     }
 
-    const handleUpdateContact = async () => {
-        try {
-            await UpdateContact(id, { name, phone, address, email })
-            alert("Contacto actualizado:")
-            if (onChange) {
-                onChange()
-            }
-        } catch (error) {
-            console.error("Error al actualizar el contacto:", error)
-        }
+    const handleUpdateContact = () => {
+        navigate("editcontact/" + id)
     }
+    
     return (
         <div className="card" >
             <img src="https://img.freepik.com/foto-gratis/joven-mujer-feliz-sueter_23-2148012141.jpg?semt=ais_hybrid&w=740" className="card-img-top" alt="..." />
